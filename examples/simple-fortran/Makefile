@@ -1,6 +1,6 @@
 # Makefile for simple-fortran example
 
-SYMUNIT := ../../bin/symunit
+SYMUNIT := ${PWD}/../../symunit/symunit.py
 TARGET_SRCFILE := ./src/interpolate.F90
 
 
@@ -9,7 +9,7 @@ TARGET_SRCFILE := ./src/interpolate.F90
 # output: the tool provides a skeleton of further directions
 # that user need to provide
 analyze:
-	${SYMUNIT} \
+	python ${SYMUNIT} \
 	${TARGET_SRCFILE}
 
 

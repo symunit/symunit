@@ -20,13 +20,16 @@ Using
 # Add platform dependent shared library path to sys.path
 #
 
-from __future__ import absolute_import
+#from __future__ import absolute_import, print_function
+#from __future__ import absolute_import, print_function
 
 import sys
 if sys.version_info[:2] < (2, 7):
     MSG = "Python 2.7 or later is required for SymUnit (%d.%d detected)."
     raise ImportError(MSG % sys.version_info[:2])
 del sys
+
+import sys
 
 # Release data
 from symunit import release
@@ -40,10 +43,8 @@ __version__ = release.VERSION
 __bibtex__ = """Not published yet."""
 
 # These are import orderwise
-from symunit.symunit import SymUnit
-from symunit.exception import SymUnitException, SymUnitError
-import symunit.external
-import symunit.utils
-
-import symunit.classes
+from .exception import *
+from .external import *
+from .utils import *
+from .classes import *
 
